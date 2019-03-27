@@ -17,7 +17,6 @@ class App : Application() {
         super.onCreate()
         val appModule = AppModule(this)
 
-
         startKoin {
             androidLogger()
             androidContext(this@App)

@@ -9,7 +9,7 @@ data class DataItem(
 	val lastName: String? = null,
 
 	@field:SerializedName("id")
-	val id: Int? = null,
+	var id: Int? = null,
 
 	@field:SerializedName("avatar")
 	val avatar: String? = null,

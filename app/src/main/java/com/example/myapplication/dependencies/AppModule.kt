@@ -28,7 +28,7 @@ class AppModule(private val context: Context) {
             val url = URL(context.getString(R.string.base_url))
             val hostName = url.host
             val certificatePinner = CertificatePinner.Builder()
-                .add(hostName, "sha256/CZEvkurQ3diX6pndH4Z5/dUNzK1Gm6+n8Hdx/DQgjO1=")
+                .add(hostName, "sha256/CZEvkurQ3diX6pndH4Z5/dUNzK1Gm6+n8Hdx/DQgjO0=")
                 .build()
 
             OkHttpClient.Builder()
@@ -54,12 +54,12 @@ class AppModule(private val context: Context) {
         }
         single<UserRepository> {
 
-            UserRepositoryImpl()
+            UserRepositoryImpl(get())
         }
 
         single {
 
-            UserUseCase(AsyncTransformer())
+            UserUseCase(AsyncTransformer(), get())
         }
 
         single { ViewModelFactory() }

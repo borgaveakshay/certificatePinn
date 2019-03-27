@@ -5,12 +5,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.models.Response
 import com.example.myapplication.usecase.UserUseCase
-import org.koin.core.KoinComponent
-import org.koin.core.inject
 
-class UserViewModel() : BaseViewModel(), KoinComponent {
+class UserViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
 
-    private val userUseCase: UserUseCase by inject()
 
     fun getUserList(page: Int): LiveData<Response> {
 
@@ -26,7 +23,7 @@ class UserViewModel() : BaseViewModel(), KoinComponent {
         }, { e ->
 
             liveData.postValue(null)
-            Toast.makeText(getApplication(), "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            isError = true
         }))
 
         return liveData

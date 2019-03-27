@@ -12,7 +12,7 @@ data class Response(
 	val total: Int? = null,
 
 	@field:SerializedName("data")
-	val data: List<DataItem?>? = null,
+	var data: List<DataItem?>? = null,
 
 	@field:SerializedName("page")
 	val page: Int? = null,

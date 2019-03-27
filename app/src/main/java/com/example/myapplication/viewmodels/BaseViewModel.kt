@@ -1,13 +1,12 @@
 package com.example.myapplication.viewmodels
 
-import androidx.lifecycle.AndroidViewModel
-import com.example.myapplication.utils.App
+import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
 
-open class BaseViewModel : AndroidViewModel(App.INSTANCE) {
+open class BaseViewModel : ViewModel() {
 
     val compositeDisposable by lazy { CompositeDisposable() }
-
+    var isError: Boolean = false
 
     override fun onCleared() {
         super.onCleared()
