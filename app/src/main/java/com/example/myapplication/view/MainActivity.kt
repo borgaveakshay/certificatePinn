@@ -29,12 +29,14 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onResume()
         mUserViewModel.getUserList(2).observe(this, Observer {
 
-            it?.let {
-                if (!mUserViewModel.isError)
-                    Toast.makeText(this, "Response received!!!", Toast.LENGTH_LONG).show()
-                else
-                    Toast.makeText(this, "Error while fetching result!!", Toast.LENGTH_LONG).show()
+            if(mUserViewModel.isError){
+                Toast.makeText(this, "Error while fetching result!!", Toast.LENGTH_LONG).show()
+            }
+            else {
+                it?.let {
 
+                        Toast.makeText(this, "Response received!!!", Toast.LENGTH_LONG).show()
+                }
             }
 
         })
