@@ -7,8 +7,11 @@ import com.example.myapplication.repository.UserRepository
 import com.example.myapplication.repository.implementation.UserRepositoryImpl
 import com.example.myapplication.usecase.UserUseCase
 import com.example.myapplication.utils.AsyncTransformer
+import com.example.myapplication.viewmodels.UserViewModel
+import com.example.myapplication.viewmodels.factory.ViewModelFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
+import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -25,7 +28,7 @@ class AppModule(private val context: Context) {
             val url = URL(context.getString(R.string.base_url))
             val hostName = url.host
             val certificatePinner = CertificatePinner.Builder()
-                .add(hostName, "CZEvkurQ3diX6pndH4Z5/dUNzK1Gm6+n8Hdx/DQgjO0=")
+                .add(hostName, "sha256/CZEvkurQ3diX6pndH4Z5/dUNzK1Gm6+n8Hdx/DQgjO0=")
                 .build()
 
             OkHttpClient.Builder()
@@ -54,10 +57,12 @@ class AppModule(private val context: Context) {
             UserRepositoryImpl(get())
         }
 
-        single<UserUseCase> {
+        single {
 
             UserUseCase(AsyncTransformer(), get())
         }
+
+        single { ViewModelFactory() }
 
     }
 
