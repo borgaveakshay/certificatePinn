@@ -10,7 +10,6 @@ import org.koin.core.inject
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory : ViewModelProvider.Factory, KoinComponent {
 
-    private val mUserUseCase: UserUseCase by inject()
 
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -18,7 +17,7 @@ class ViewModelFactory : ViewModelProvider.Factory, KoinComponent {
 
         return when (modelClass.simpleName) {
 
-            UserViewModel::class.java.simpleName -> UserViewModel(mUserUseCase) as T
+            UserViewModel::class.java.simpleName -> UserViewModel() as T
             else -> null!!
         }
 

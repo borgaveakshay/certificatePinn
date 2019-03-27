@@ -5,9 +5,12 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.myapplication.models.Response
 import com.example.myapplication.usecase.UserUseCase
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class UserViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
+class UserViewModel : BaseViewModel(), KoinComponent {
 
+    private val userUseCase: UserUseCase by inject()
 
     fun getUserList(page: Int): LiveData<Response> {
 
@@ -20,7 +23,7 @@ class UserViewModel(private val userUseCase: UserUseCase) : BaseViewModel() {
             }
 
 
-        }, { e ->
+        }, { _ ->
 
             liveData.postValue(null)
             isError = true

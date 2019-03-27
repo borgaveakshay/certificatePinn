@@ -7,24 +7,39 @@ import com.example.myapplication.utils.TestUtils
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mockito
 
-class UserUseCaseTest {
+class UserUseCaseTest : KoinTest {
 
 
-    private lateinit var mUserRepository: UserRepository
+    private val mUserRepository: UserRepository by inject()
 
 
     @Before
     fun before() {
-        mUserRepository = Mockito.mock(UserRepository::class.java)
+
+
+        val module = module {
+
+            single {
+                Mockito.mock(UserRepository::class.java)
+            }
+        }
+
+        startKoin {
+            modules(module)
+        }
     }
 
     @Test
     fun test() {
 
         Mockito.`when`(mUserRepository.getUsers(2)).thenReturn(Observable.just(TestUtils.getMockUserUseCaseData()))
-        val userUseCase = UserUseCase(TestTransformer(), mUserRepository)
+        val userUseCase = UserUseCase(TestTransformer())
         userUseCase.observable(2).test()
             .assertValue { result ->
                 result.data?.size == 5

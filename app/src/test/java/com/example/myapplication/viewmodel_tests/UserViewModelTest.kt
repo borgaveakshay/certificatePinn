@@ -12,15 +12,19 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TestRule
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mockito
 
 
-class UserViewModelTest {
+class UserViewModelTest : KoinTest {
 
 
-    private lateinit var mUserRepository: UserRepository
+    private val mUserRepository: UserRepository by inject()
 
-    private lateinit var mUserUseCase: UserUseCase
+    private val mUserUseCase: UserUseCase by inject()
 
     @get:Rule
     var rule: TestRule = InstantTaskExecutorRule()
@@ -28,8 +32,20 @@ class UserViewModelTest {
 
     @Before
     fun before() {
-        mUserRepository = Mockito.mock(UserRepository::class.java)
-        mUserUseCase = UserUseCase(TestTransformer(), mUserRepository)
+        val module = module {
+            single {
+                UserUseCase(TestTransformer())
+            }
+            single {
+                Mockito.mock(UserRepository::class.java)
+            }
+        }
+        startKoin {
+
+            modules(module)
+        }
+
+
     }
 
 
@@ -37,7 +53,7 @@ class UserViewModelTest {
     fun test() {
 
         Mockito.`when`(mUserUseCase.createObservable(2)).thenReturn(Observable.just(TestUtils.getMockUserUseCaseData()))
-        val userViewModel = UserViewModel(mUserUseCase)
+        val userViewModel = UserViewModel()
         userViewModel.getUserList(2).observeForever {
             if (it?.data?.size == 5)
                 assert(true)

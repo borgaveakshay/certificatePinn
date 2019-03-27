@@ -54,12 +54,12 @@ class AppModule(private val context: Context) {
         }
         single<UserRepository> {
 
-            UserRepositoryImpl(get())
+            UserRepositoryImpl()
         }
 
         single {
 
-            UserUseCase(AsyncTransformer(), get())
+            UserUseCase(AsyncTransformer())
         }
 
         single { ViewModelFactory() }

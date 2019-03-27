@@ -6,27 +6,39 @@ import com.example.myapplication.utils.TestUtils
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
+import org.koin.test.KoinTest
+import org.koin.test.inject
 import org.mockito.Mockito
 
-class UserRepositoryTest {
+class UserRepositoryTest : KoinTest {
 
 
-    lateinit var mAPI: API
+    private val mAPI: API by inject()
 
 
     @Before
     fun before() {
 
-        mAPI = Mockito.mock(API::class.java)
+        val module = module {
+            single {
+                Mockito.mock(API::class.java)
+            }
+        }
+        startKoin {
+
+            modules(module)
+        }
+
 
     }
-
 
     @Test
     fun test() {
 
         Mockito.`when`(mAPI.getUsers(2)).thenReturn(Observable.just(TestUtils.getMockUserUseCaseData()))
-        val userRepository = UserRepositoryImpl(mAPI)
+        val userRepository = UserRepositoryImpl()
         userRepository.getUsers(2).test()
             .assertValue { result ->
 
