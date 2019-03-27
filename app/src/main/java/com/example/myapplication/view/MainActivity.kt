@@ -1,7 +1,10 @@
 package com.example.myapplication.view
 
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
 import com.example.myapplication.viewmodels.UserViewModel
@@ -9,7 +12,7 @@ import com.example.myapplication.viewmodels.factory.ViewModelFactory
 import org.koin.android.ext.android.inject
 
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var mUserViewModel: UserViewModel
     private val mViewModelFactory: ViewModelFactory by inject()
@@ -20,11 +23,16 @@ class MainActivity : AppCompatActivity() {
 
         mUserViewModel = ViewModelProviders.of(this, mViewModelFactory).get(UserViewModel::class.java)
 
-
     }
 
     override fun onResume() {
         super.onResume()
-        mUserViewModel.getUserList(2)
+        mUserViewModel.getUserList(2).observe(this, Observer {
+
+            it?.let {
+                Toast.makeText(this, "Response received!!!", Toast.LENGTH_LONG).show()
+            }
+            
+        })
     }
 }
