@@ -22,7 +22,6 @@ import org.mockito.Mockito
 class UserViewModelTest : KoinTest {
 
 
-    private val mUserRepository: UserRepository by inject()
 
     private val mUserUseCase: UserUseCase by inject()
 
