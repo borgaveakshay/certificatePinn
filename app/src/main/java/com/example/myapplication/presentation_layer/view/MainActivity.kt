@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.inject
 
 
+@Suppress("UNCHECKED_CAST")
 class MainActivity : AppCompatActivity(), LifecycleOwner {
 
     private lateinit var mUserViewModel: UserViewModel
@@ -42,13 +43,12 @@ class MainActivity : AppCompatActivity(), LifecycleOwner {
         super.onResume()
         mUserViewModel.getUserList(2).observe(this, Observer {
 
-            if(mUserViewModel.isError){
+            if (mUserViewModel.isError) {
                 Toast.makeText(this, "Error while fetching result!!", Toast.LENGTH_LONG).show()
-            }
-            else {
+            } else {
                 it?.let {
-                        userListAdapter.updateList(it.data as List<DataItem>)
-                        Toast.makeText(this, "Response received!!!", Toast.LENGTH_LONG).show()
+                    userListAdapter.updateList(it.data as List<DataItem>)
+                    Toast.makeText(this, "Response received!!!", Toast.LENGTH_LONG).show()
                 }
             }
 
