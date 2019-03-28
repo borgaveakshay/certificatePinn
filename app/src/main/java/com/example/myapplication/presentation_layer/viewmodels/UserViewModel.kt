@@ -21,7 +21,6 @@ class UserViewModel : BaseViewModel(), KoinComponent {
                 liveData.postValue(response)
             }
 
-
         }, { _ ->
 
             liveData.postValue(null)

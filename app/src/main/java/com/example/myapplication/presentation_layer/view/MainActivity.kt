@@ -1,7 +1,6 @@
 package com.example.myapplication.presentation_layer.view
 
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LifecycleOwner
@@ -11,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.presentation_layer.models.DataItem
+import com.example.myapplication.presentation_layer.view.adapters.UserListAdapter
 import com.example.myapplication.presentation_layer.viewmodels.UserViewModel
 import com.example.myapplication.presentation_layer.viewmodels.factory.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_main.*
