@@ -1,8 +1,8 @@
-package com.example.myapplication.usecase
+package com.example.myapplication.domain_layer.usecase
 
-import com.example.myapplication.models.Response
-import com.example.myapplication.repository.UserRepository
-import com.example.myapplication.utils.Transformer
+import com.example.myapplication.presentation_layer.models.Response
+import com.example.myapplication.domain_layer.repository.UserRepository
+import com.example.myapplication.presentation_layer.utils.Transformer
 import io.reactivex.Observable
 import org.koin.core.KoinComponent
 import org.koin.core.inject

@@ -1,8 +1,7 @@
-package com.example.myapplication.utils
+package com.example.myapplication.presentation_layer.utils
 
 import android.app.Application
-import android.content.ComponentCallbacks2
-import com.example.myapplication.dependencies.AppModule
+import com.example.myapplication.presentation_layer.dependencies.AppModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin

@@ -2,11 +2,11 @@ package com.example.myapplication.viewmodel_tests
 
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import com.example.myapplication.repository.UserRepository
-import com.example.myapplication.usecase.UserUseCase
-import com.example.myapplication.utils.TestTransformer
-import com.example.myapplication.utils.TestUtils
-import com.example.myapplication.viewmodels.UserViewModel
+import com.example.myapplication.domain_layer.repository.UserRepository
+import com.example.myapplication.domain_layer.usecase.UserUseCase
+import com.example.myapplication.presentation_layer.utils.TestTransformer
+import com.example.myapplication.presentation_layer.utils.TestUtils
+import com.example.myapplication.presentation_layer.viewmodels.UserViewModel
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Rule

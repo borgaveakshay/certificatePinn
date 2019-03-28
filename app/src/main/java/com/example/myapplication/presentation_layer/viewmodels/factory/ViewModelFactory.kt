@@ -1,11 +1,9 @@
-package com.example.myapplication.viewmodels.factory
+package com.example.myapplication.presentation_layer.viewmodels.factory
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.myapplication.usecase.UserUseCase
-import com.example.myapplication.viewmodels.UserViewModel
+import com.example.myapplication.presentation_layer.viewmodels.UserViewModel
 import org.koin.core.KoinComponent
-import org.koin.core.inject
 
 @Suppress("UNCHECKED_CAST")
 class ViewModelFactory : ViewModelProvider.Factory, KoinComponent {

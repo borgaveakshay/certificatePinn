@@ -1,4 +1,4 @@
-package com.example.myapplication.utils
+package com.example.myapplication.presentation_layer.utils
 
 import io.reactivex.Observable
 import io.reactivex.ObservableSource

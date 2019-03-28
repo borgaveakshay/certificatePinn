@@ -1,10 +1,9 @@
-package com.example.myapplication.viewmodels
+package com.example.myapplication.presentation_layer.viewmodels
 
-import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.myapplication.models.Response
-import com.example.myapplication.usecase.UserUseCase
+import com.example.myapplication.presentation_layer.models.Response
+import com.example.myapplication.domain_layer.usecase.UserUseCase
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 

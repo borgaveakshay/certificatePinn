@@ -1,9 +1,9 @@
 package com.example.myapplication.usecase_tests
 
-import com.example.myapplication.repository.UserRepository
-import com.example.myapplication.usecase.UserUseCase
-import com.example.myapplication.utils.TestTransformer
-import com.example.myapplication.utils.TestUtils
+import com.example.myapplication.domain_layer.repository.UserRepository
+import com.example.myapplication.domain_layer.usecase.UserUseCase
+import com.example.myapplication.presentation_layer.utils.TestTransformer
+import com.example.myapplication.presentation_layer.utils.TestUtils
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test

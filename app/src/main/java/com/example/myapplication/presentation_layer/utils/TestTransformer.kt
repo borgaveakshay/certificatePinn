@@ -1,9 +1,7 @@
-package com.example.myapplication.utils
+package com.example.myapplication.presentation_layer.utils
 
 import io.reactivex.Observable
 import io.reactivex.ObservableSource
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.schedulers.Schedulers
 
 class TestTransformer<T> : Transformer<T>() {
 

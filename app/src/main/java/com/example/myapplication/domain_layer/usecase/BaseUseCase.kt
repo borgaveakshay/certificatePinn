@@ -1,6 +1,6 @@
-package com.example.myapplication.usecase
+package com.example.myapplication.domain_layer.usecase
 
-import com.example.myapplication.utils.Transformer
+import com.example.myapplication.presentation_layer.utils.Transformer
 import io.reactivex.Observable
 
 abstract class BaseUseCase<T, R>(private val transformer: Transformer<T>) {

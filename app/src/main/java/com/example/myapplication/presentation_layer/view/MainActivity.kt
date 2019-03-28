@@ -1,4 +1,4 @@
-package com.example.myapplication.view
+package com.example.myapplication.presentation_layer.view
 
 import android.os.Bundle
 import android.widget.Toast
@@ -7,8 +7,8 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.example.myapplication.R
-import com.example.myapplication.viewmodels.UserViewModel
-import com.example.myapplication.viewmodels.factory.ViewModelFactory
+import com.example.myapplication.presentation_layer.viewmodels.UserViewModel
+import com.example.myapplication.presentation_layer.viewmodels.factory.ViewModelFactory
 import org.koin.android.ext.android.inject
 
 

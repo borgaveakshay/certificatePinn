@@ -1,8 +1,8 @@
-package com.example.myapplication.repository.implementation
+package com.example.myapplication.data_layer.repo_impl
 
-import com.example.myapplication.api.API
-import com.example.myapplication.models.Response
-import com.example.myapplication.repository.UserRepository
+import com.example.myapplication.data_layer.api.API
+import com.example.myapplication.presentation_layer.models.Response
+import com.example.myapplication.domain_layer.repository.UserRepository
 import io.reactivex.Observable
 import org.koin.core.KoinComponent
 import org.koin.core.inject

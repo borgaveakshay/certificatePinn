@@ -1,7 +1,7 @@
-package com.example.myapplication.utils
+package com.example.myapplication.presentation_layer.utils
 
-import com.example.myapplication.models.DataItem
-import com.example.myapplication.models.Response
+import com.example.myapplication.presentation_layer.models.DataItem
+import com.example.myapplication.presentation_layer.models.Response
 
 object TestUtils {
 

@@ -1,17 +1,15 @@
-package com.example.myapplication.dependencies
+package com.example.myapplication.presentation_layer.dependencies
 
 import android.content.Context
 import com.example.myapplication.R
-import com.example.myapplication.api.API
-import com.example.myapplication.repository.UserRepository
-import com.example.myapplication.repository.implementation.UserRepositoryImpl
-import com.example.myapplication.usecase.UserUseCase
-import com.example.myapplication.utils.AsyncTransformer
-import com.example.myapplication.viewmodels.UserViewModel
-import com.example.myapplication.viewmodels.factory.ViewModelFactory
+import com.example.myapplication.data_layer.api.API
+import com.example.myapplication.domain_layer.repository.UserRepository
+import com.example.myapplication.data_layer.repo_impl.UserRepositoryImpl
+import com.example.myapplication.domain_layer.usecase.UserUseCase
+import com.example.myapplication.presentation_layer.utils.AsyncTransformer
+import com.example.myapplication.presentation_layer.viewmodels.factory.ViewModelFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
-import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory

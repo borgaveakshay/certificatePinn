@@ -1,8 +1,8 @@
 package com.example.myapplication.repository_tests
 
-import com.example.myapplication.api.API
-import com.example.myapplication.repository.implementation.UserRepositoryImpl
-import com.example.myapplication.utils.TestUtils
+import com.example.myapplication.data_layer.api.API
+import com.example.myapplication.data_layer.repo_impl.UserRepositoryImpl
+import com.example.myapplication.presentation_layer.utils.TestUtils
 import io.reactivex.Observable
 import org.junit.Before
 import org.junit.Test

@@ -1,4 +1,4 @@
-package com.example.myapplication.viewmodels
+package com.example.myapplication.presentation_layer.viewmodels
 
 import androidx.lifecycle.ViewModel
 import io.reactivex.disposables.CompositeDisposable
