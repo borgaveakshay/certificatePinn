@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.R
 import com.example.myapplication.presentation_layer.models.DataItem
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.user_row.view.*
 
 class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
 
